@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 01:56:45 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/17 02:01:36 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/17 18:13:23 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static void	check_args(int ac, char *av[])
 	j = 0;
 	if (ac == 1)
 		exit (EXIT_FAILURE);
-	while(av[i])
+	while (av[i])
 	{
-		while(av[i][j])
+		if ((av[i][j] == '-') && (av[i][j + 1] != '\0'))
+				j++;
+		while (av[i][j])
 		{
-			if (((av[i][j] < '0') || (av[i][j] > '9')) && (av[i][j] != '-'))
-				ft_error();
-			if ((av[i][j] == '-') && (av[i][j + 1] == '\0'))
+			if ((av[i][j] < '0') || (av[i][j] > '9'))
 				ft_error();
 			j++;
 		}
