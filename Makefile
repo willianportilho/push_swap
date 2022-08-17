@@ -6,7 +6,7 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 21:44:36 by wportilh          #+#    #+#              #
-#    Updated: 2022/08/17 19:45:27 by wportilh         ###   ########.fr        #
+#    Updated: 2022/08/17 23:10:20 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,12 +54,11 @@ ${NAME}:		${LIBFT} ${OBJS}
 				@echo "${CYAN}=========="
 				@echo "OBJS OK!!!"
 				@echo "==========${RESET}"
-				@sleep 2
+				@sleep 1
 				@${CC} ${OBJS} ${LIBFT} -o ${NAME}
 				@echo "${CYAN}========================"
 				@echo "PIPEX PROGRAM CREATED!!!"
 				@echo "========================${RESET}"
-				@sleep 2
 
 ${OBJ_PATH}%.o:	${SRC_PATH}%.c
 				@mkdir -p obj
@@ -70,6 +69,7 @@ ${LIBFT}:
 
 ac:				${NAME}
 				@make clean
+				clear
 
 run:			${NAME}
 				${VAL} ./${NAME}
@@ -94,7 +94,6 @@ re:				fclean all
 				@echo "${CYAN}==============="
 				@echo "RE COMPLETED!!!"
 				@echo "===============${RESET}"
-				@sleep 1
 
 norm:
 				norminette ${SRCS} ${LIB} ${INC}

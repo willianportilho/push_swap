@@ -6,11 +6,33 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 01:56:45 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/17 19:36:43 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/18 00:41:40 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+static void	stacks(char *av[], t_list **list)
+{
+	t_list	*node;
+	int		i;
+
+	i = 1;
+	*list = ft_lstnew(av[i++]);
+	node = ft_lstnew(av[i++]);
+	(*list)->next = node;
+	while (av[i])
+	{
+		node->next = ft_lstnew(av[i++]);
+		node = node->next;
+	}
+	ft_printf("%s\n", (*list)->content);
+	while ((*list)->next)
+	{
+		ft_printf("%s\n", (*list)->next->content);
+		*list = (*list)->next;
+	}
+}
 
 static void	check_dup(int n, char *av[])
 {
@@ -57,8 +79,8 @@ static void	check_args(int ac, char *av[])
 	}
 }
 
-void	ps_init(int ac, char *av[])//, t_list **list)
+void	ps_init(int ac, char *av[], t_list **list)
 {
 	check_args(ac, av);
-	//stacks(av);
+	stacks(av, list);
 }
