@@ -6,7 +6,7 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 21:44:36 by wportilh          #+#    #+#              #
-#    Updated: 2022/08/17 01:41:57 by wportilh         ###   ########.fr        #
+#    Updated: 2022/08/17 19:37:43 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,22 +110,10 @@ all:		${NAME}
 
 clean:
 			@${RM} ${OBJ}
-			@echo "${CYAN}==========="
-			@echo "CLEAN OK!!!"
-			@echo "===========${RESET}"
-			@sleep 1
 
 fclean:		clean
 			@${RM} ${NAME}
-			@echo "${CYAN}============"
-			@echo "FCLEAN OK!!!"
-			@echo "============${RESET}"
-			@sleep 1
 
 re:			fclean all
-			@echo "${CYAN}========"
-			@echo "RE OK!!!"
-			@echo "========${RESET}"
-			@sleep 1
 
 .PHONY:		all clean fclean re

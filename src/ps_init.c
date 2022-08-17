@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 01:56:45 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/17 18:42:22 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/17 19:36:43 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ static void	check_dup(int n, char *av[])
 	amount = 0;
 	while (av[i])
 	{
-		if (n == ft_atoi(av[i]))
+		if (n == ft_atoi(av[i++]))
 			amount++;
-		i++;
+		if (amount > 1)
+			ft_error();
 	}
-	if (amount > 1)
-		ft_error();
 }
 
 static void	check_args(int ac, char *av[])
@@ -58,7 +57,8 @@ static void	check_args(int ac, char *av[])
 	}
 }
 
-void	ps_init(int ac, char *av[])
+void	ps_init(int ac, char *av[])//, t_list **list)
 {
 	check_args(ac, av);
+	//stacks(av);
 }
