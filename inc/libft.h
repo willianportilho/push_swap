@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:58:58 by wportilh          #+#    #+#             */
-/*   Updated: 2022/07/13 19:55:37 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/17 01:42:52 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *s1, const char *s2, size_t len);
 int		ft_atoi(const char *nptr);
+long	ft_atol(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 
