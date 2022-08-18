@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:51:17 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/17 21:17:02 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/19 01:31:20 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	main(int argc, char *argv[])
 {
-	t_list	*list;
+	t_data		data;
 
-	ps_init(argc, argv, &list);
+	ps_init(argc, argv, &data);
+	ft_lstclear_dup(&data.a);
 }

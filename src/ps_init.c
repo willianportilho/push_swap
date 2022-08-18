@@ -6,31 +6,28 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 01:56:45 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/18 00:41:40 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/19 01:35:52 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	stacks(char *av[], t_list **list)
+static void	stack(char *av[], t_data *data)
 {
-	t_list	*node;
 	int		i;
 
 	i = 1;
-	*list = ft_lstnew(av[i++]);
-	node = ft_lstnew(av[i++]);
-	(*list)->next = node;
-	while (av[i])
+	data->a = ft_lstnew_dup(ft_atoi(av[i++]));
+	if (av[i])
 	{
-		node->next = ft_lstnew(av[i++]);
-		node = node->next;
-	}
-	ft_printf("%s\n", (*list)->content);
-	while ((*list)->next)
-	{
-		ft_printf("%s\n", (*list)->next->content);
-		*list = (*list)->next;
+		data->node = ft_lstnew_dup(ft_atoi(av[i++]));
+		data->a->next = data->node;
+		while (av[i])
+		{
+			data->node->next = ft_lstnew_dup(ft_atoi(av[i++]));
+			data->node = data->node->next;
+		}
+		data->ind_a = ft_lstsize_dup(data->a);
 	}
 }
 
@@ -79,8 +76,8 @@ static void	check_args(int ac, char *av[])
 	}
 }
 
-void	ps_init(int ac, char *av[], t_list **list)
+void	ps_init(int ac, char *av[], t_data *data)
 {
 	check_args(ac, av);
-	stacks(av, list);
+	stack(av, data);
 }
