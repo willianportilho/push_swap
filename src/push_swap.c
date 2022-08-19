@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:51:17 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/20 00:57:01 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/20 01:05:22 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int argc, char *argv[])
 		data.aux_op = data.aux_op->next;
 	}
 	ft_printf("%s\n", data.aux_op->content);*/
-	ft_lstclear_dup(&data.a);
-	ft_lstclear_dup(&data.b);
+	ft_lstclear_num(&data.a);
+	ft_lstclear_num(&data.b);
 	ft_lstclear_alt(&data.all_op);
 }

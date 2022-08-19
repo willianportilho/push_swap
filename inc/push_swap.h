@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:11:52 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/19 22:32:17 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/20 01:06:03 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 
 typedef struct s_data
 {
-	t_list_dup	*a;
-	t_list_dup	*b;
-	t_list_dup	*aux;
+	t_list_num	*a;
+	t_list_num	*b;
+	t_list_num	*aux;
 	t_list		*all_op;
 	t_list		*aux_op;
 	int			ind_a;

@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_dup.c                              :+:      :+:    :+:   */
+/*   ft_lstlast_num.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 19:06:43 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/18 19:41:27 by wportilh         ###   ########.fr       */
+/*   Created: 2022/04/20 03:11:15 by wportilh          #+#    #+#             */
+/*   Updated: 2022/08/20 01:08:44 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_lstadd_front_dup(t_list_dup **lst, t_list_dup *new)
+t_list_num	*ft_lstlast_num(t_list_num *lst)
 {
-	new->next = *lst;
-	*lst = new;
+	while (lst != NULL)
+	{
+		if (lst->next == NULL)
+			return (lst);
+		else
+			lst = (*lst).next;
+	}
+	return (lst);
 }

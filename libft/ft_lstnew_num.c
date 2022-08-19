@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_dup.c                                 :+:      :+:    :+:   */
+/*   ft_lstnew_num.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 22:52:31 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/19 00:38:19 by wportilh         ###   ########.fr       */
+/*   Created: 2022/04/18 00:23:19 by wportilh          #+#    #+#             */
+/*   Updated: 2022/08/20 01:07:59 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_lstdelone_dup(t_list_dup *lst)
+t_list_num	*ft_lstnew_num(int content)
 {
-	if (lst)
-		free(lst);
+	t_list_num	*n;
+
+	n = malloc(sizeof(t_list));
+	if (n == NULL)
+		return (NULL);
+	(*n).content = content;
+	n->next = NULL;
+	return (n);
 }

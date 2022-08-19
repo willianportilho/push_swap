@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 02:24:11 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/20 00:18:32 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/20 01:05:04 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	rotate(char *op, t_data *data)
 {
 	if ((ft_strcmp(op, "ra") == 0) || (ft_strcmp(op, "rr") == 0))
 	{
-		data->aux = ft_lstlast_dup(data->a);
+		data->aux = ft_lstlast_num(data->a);
 		data->aux->next = data->a;
 		data->aux = data->a->next;
 		data->a->next = NULL;
@@ -67,7 +67,7 @@ void	rotate(char *op, t_data *data)
 	}
 	if ((ft_strcmp(op, "rb") == 0) || (ft_strcmp(op, "rr") == 0))
 	{
-		data->aux = ft_lstlast_dup(data->b);
+		data->aux = ft_lstlast_num(data->b);
 		data->aux->next = data->b;
 		data->aux = data->b->next;
 		data->b->next = NULL;
@@ -81,8 +81,8 @@ void	reverse_rotate(char *op, t_data *data)
 {
 	if ((ft_strcmp(op, "rra") == 0) || (ft_strcmp(op, "rrr") == 0))
 	{
-		data->ind_a = ft_lstsize_dup(data->a);
-		data->aux = ft_lstlast_dup(data->a);
+		data->ind_a = ft_lstsize_num(data->a);
+		data->aux = ft_lstlast_num(data->a);
 		data->aux->next = data->a;
 		data->a = data->aux;
 		while (data->ind_a-- > 1)
@@ -92,8 +92,8 @@ void	reverse_rotate(char *op, t_data *data)
 	}
 	if ((ft_strcmp(op, "rrb") == 0) || (ft_strcmp(op, "rrr") == 0))
 	{
-		data->ind_b = ft_lstsize_dup(data->b);
-		data->aux = ft_lstlast_dup(data->b);
+		data->ind_b = ft_lstsize_num(data->b);
+		data->aux = ft_lstlast_num(data->b);
 		data->aux->next = data->b;
 		data->b = data->aux;
 		while (data->ind_b-- > 1)

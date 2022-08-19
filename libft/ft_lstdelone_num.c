@@ -1,39 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_dup.c                               :+:      :+:    :+:   */
+/*   ft_lstdelone_num.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 04:36:51 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/18 19:41:36 by wportilh         ###   ########.fr       */
+/*   Created: 2022/04/20 22:52:31 by wportilh          #+#    #+#             */
+/*   Updated: 2022/08/20 01:07:46 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_lstadd_back_dup(t_list_dup **lst, t_list_dup *new)
+void	ft_lstdelone_num(t_list_num *lst)
 {
-	t_list_dup	*temp;
-
-	temp = *lst;
-	if (*lst == NULL)
-	{
-		*lst = new;
-		return ;
-	}
-	else if (temp->next == NULL)
-	{
-		temp->next = new;
-		return ;
-	}
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-		if (temp->next == NULL)
-		{
-			temp->next = new;
-			return ;
-		}
-	}
+	if (lst)
+		free(lst);
 }

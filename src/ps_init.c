@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 01:56:45 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/19 22:24:35 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/20 01:04:34 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ static void	stack(char *av[], t_data *data)
 	int		i;
 
 	i = 1;
-	data->a = ft_lstnew_dup(ft_atoi(av[i++]));
+	data->a = ft_lstnew_num(ft_atoi(av[i++]));
 	if (av[i])
 	{
-		data->aux = ft_lstnew_dup(ft_atoi(av[i++]));
+		data->aux = ft_lstnew_num(ft_atoi(av[i++]));
 		data->a->next = data->aux;
 		while (av[i])
 		{
-			data->aux->next = ft_lstnew_dup(ft_atoi(av[i++]));
+			data->aux->next = ft_lstnew_num(ft_atoi(av[i++]));
 			data->aux = data->aux->next;
 		}
 		data->aux = NULL;
