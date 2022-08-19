@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:11:52 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/19 03:46:13 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/19 03:59:50 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_data
 	int			ind_b;
 }				t_data;
 
+void	rotate(char c, t_data *data);
 void	swap(char c, t_data *data);
 void	ps_init(int ac, char *av[], t_data *data);
 void	ft_error(void);
