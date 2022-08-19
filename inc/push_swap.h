@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:11:52 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/19 20:45:16 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/19 22:32:17 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,18 @@ typedef struct s_data
 	t_list_dup	*a;
 	t_list_dup	*b;
 	t_list_dup	*aux;
-	t_list		*op;
-	t_list		*supp;
+	t_list		*all_op;
+	t_list		*aux_op;
 	int			ind_a;
 	int			ind_b;
-	int			check;
 }				t_data;
 
 void	push(char *op, t_data *data);
-void	reverse_rotate_one(char *op, t_data *data);
-void	reverse_rotate_two(char *op, t_data *data);
+void	reverse_rotate(char *op, t_data *data);
 void	rotate(char *op, t_data *data);
 void	swap(char *op, t_data *data);
 void	ps_init(int ac, char *av[], t_data *data);
 void	ps_error(void);
-void	ps_print(char *op);
+void	ps_save_op(char *op, t_data *data);
 
 #endif

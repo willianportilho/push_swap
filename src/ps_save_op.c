@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ps_save_op.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 04:00:55 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/20 00:24:33 by wportilh         ###   ########.fr       */
+/*   Created: 2022/08/19 06:51:09 by wportilh          #+#    #+#             */
+/*   Updated: 2022/08/20 00:51:53 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/libft.h"
+#include "../inc/push_swap.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ps_save_op(char *op, t_data *data)
 {
-	t_list	*temp;
-
-	temp = *lst;
-	if (temp == NULL)
-		return ;
-	while (*lst)
+	if (data->all_op == NULL)
+		data->all_op = ft_lstnew(op);
+	else
 	{
-		*lst = (*lst)->next;
-		del(temp->content);
-		free(temp);
-		temp = *lst;
+		data->aux_op = ft_lstlast(data->all_op);
+		data->aux_op->next = ft_lstnew(op);
 	}
-	*lst = NULL;
 }

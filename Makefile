@@ -6,7 +6,7 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 21:44:36 by wportilh          #+#    #+#              #
-#    Updated: 2022/08/19 20:28:34 by wportilh         ###   ########.fr        #
+#    Updated: 2022/08/19 22:58:10 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SOURCES =		                 \
 				ps_init.c          \
 				ps_error.c          \
 				ps_operations.c      \
-				ps_print.c
+				ps_save_op.c
 
 NAME =			push_swap
 
@@ -76,6 +76,10 @@ ac:				${NAME}
 run:			${NAME}
 				clear
 				${VAL} ./${NAME} 1 2 3 4 5 6
+
+run2:			${NAME}
+				clear
+				./${NAME} 1 2 3 4 5 6
 
 clean:		
 				@${RM_ALL} ${OBJ_PATH}

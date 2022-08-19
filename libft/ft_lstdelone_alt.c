@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstdelone_alt.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 04:00:55 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/20 00:24:33 by wportilh         ###   ########.fr       */
+/*   Created: 2022/04/20 22:52:31 by wportilh          #+#    #+#             */
+/*   Updated: 2022/08/20 00:33:09 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstdelone_alt(t_list *lst)
 {
-	t_list	*temp;
-
-	temp = *lst;
-	if (temp == NULL)
-		return ;
-	while (*lst)
-	{
-		*lst = (*lst)->next;
-		del(temp->content);
-		free(temp);
-		temp = *lst;
-	}
-	*lst = NULL;
+	if (lst)
+		free(lst);
 }

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:58:58 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/19 07:07:18 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/20 00:30:16 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ int			ft_lstsize(t_list *lst);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 void		ft_lstclear(t_list **lst, void (*del)(void*));
+void		ft_lstclear_alt(t_list **lst);
 void		ft_lstdelone(t_list *lst, void (*del)(void*));
+void		ft_lstdelone_all(t_list *lst);
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 
 typedef struct s_list_dup

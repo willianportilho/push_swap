@@ -6,7 +6,7 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 21:44:36 by wportilh          #+#    #+#              #
-#    Updated: 2022/08/19 07:06:11 by wportilh         ###   ########.fr        #
+#    Updated: 2022/08/20 00:36:49 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,15 +70,17 @@ SRC	=                       \
 	ft_lstlast.c              \
 	ft_lstadd_back.c            \
 	ft_lstdelone.c            \
-	ft_lstclear.c           \
+	ft_lstdelone_alt.c      \
+	ft_lstclear.c             \
+	ft_lstclear_alt.c           \
 	ft_lstiter.c              \
-	ft_lstmap.c                 \
+	ft_lstmap.c             \
 	ft_lstnew_dup.c           \
-	ft_lstadd_front_dup.c   \
+	ft_lstadd_front_dup.c       \
 	ft_lstsize_dup.c          \
-	ft_lstlast_dup.c            \
+	ft_lstlast_dup.c        \
 	ft_lstadd_back_dup.c      \
-	ft_lstdelone_dup.c      \
+	ft_lstdelone_dup.c          \
 	ft_lstclear_dup.c         \
 
 OBJ			= ${SRC:.c=.o}

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 01:56:45 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/19 19:25:21 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/19 22:24:35 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@ void	ps_init(int ac, char *av[], t_data *data)
 {
 	check_args(ac, av);
 	stack(av, data);
-	data->check = N_OK;
+	data->all_op = NULL;
+	data->aux_op = NULL;
 }
