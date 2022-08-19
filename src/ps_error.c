@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ps_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:50:14 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/16 23:55:58 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/19 05:42:41 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ft_error(void)
+void	ps_error(void)
 {
 	ft_printf("Error\n");
 	exit(EXIT_FAILURE);
