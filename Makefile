@@ -6,14 +6,15 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 21:44:36 by wportilh          #+#    #+#              #
-#    Updated: 2022/08/19 01:27:38 by wportilh         ###   ########.fr        #
+#    Updated: 2022/08/19 03:42:52 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SOURCES =		                 \
 				push_swap.c       \
 				ps_init.c          \
-				ft_error.c
+				ft_error.c          \
+				operations.c
 
 NAME =			push_swap
 
@@ -72,7 +73,7 @@ ac:				${NAME}
 				clear
 
 run:			${NAME}
-				${VAL} ./${NAME} 1 789 456 4234 4566416 656965356
+				${VAL} ./${NAME} 1 789 6 456
 
 clean:		
 				@${RM_ALL} ${OBJ_PATH}
