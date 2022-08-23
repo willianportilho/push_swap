@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 01:56:45 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/23 00:51:21 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/23 21:58:41 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	stack(char *av[], t_data *data)
 		data->aux = NULL;
 	}
 	data->b = NULL;
+	data->aux2 = NULL;
 }
 
 static void	check_dup(int n, char *av[])
@@ -60,7 +61,7 @@ static void	check_args(int ac, char *av[])
 		exit (EXIT_FAILURE);
 	while (av[i])
 	{
-		if ((av[i][j] == '-') && (av[i][j + 1] != '\0'))
+		if (((av[i][j] == '-') || (av[i][j] == '+')) && (av[i][j + 1] != '\0'))
 				j++;
 		while (av[i][j])
 		{
@@ -69,7 +70,7 @@ static void	check_args(int ac, char *av[])
 			j++;
 		}
 		n = ft_atol(av[i]);
-		if ((n < -2147483648) || (n > 2147483647))
+		if ((n < INT_MIN) || (n > INT_MAX))
 			ps_error();
 		check_dup(n, av);
 		i++;
@@ -81,6 +82,8 @@ void	ps_init(int ac, char *av[], t_data *data)
 {
 	check_args(ac, av);
 	stack(av, data);
+	if (!ps_check_sorting(data))
+		exit(EXIT_SUCCESS);
 	data->all_op = NULL;
 	data->aux_op = NULL;
 }
