@@ -1,39 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_num.c                               :+:      :+:    :+:   */
+/*   ft_lstadd_front_n.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 04:36:51 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/20 01:07:13 by wportilh         ###   ########.fr       */
+/*   Created: 2022/04/19 19:06:43 by wportilh          #+#    #+#             */
+/*   Updated: 2022/08/23 00:50:33 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_lstadd_back_num(t_list_num **lst, t_list_num *new)
+void	ft_lstadd_front_n(t_list_n **lst, t_list_n *new)
 {
-	t_list_num	*temp;
-
-	temp = *lst;
-	if (*lst == NULL)
-	{
-		*lst = new;
-		return ;
-	}
-	else if (temp->next == NULL)
-	{
-		temp->next = new;
-		return ;
-	}
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-		if (temp->next == NULL)
-		{
-			temp->next = new;
-			return ;
-		}
-	}
+	new->next = *lst;
+	*lst = new;
 }

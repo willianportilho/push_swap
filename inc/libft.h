@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:58:58 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/20 01:01:51 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/23 00:53:30 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,19 +73,19 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstdelone_all(t_list *lst);
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 
-typedef struct s_list_num
+typedef struct s_list_n
 {
-	int					content;
-	struct s_list_num	*next;
-}						t_list_num;
+	int				content;
+	struct s_list_n	*next;
+}					t_list_n;
 
-t_list_num	*ft_lstlast_num(t_list_num *lst);
-t_list_num	*ft_lstnew_num(int content);
-int			ft_lstsize_num(t_list_num *lst);
-void		ft_lstadd_back_num(t_list_num **lst, t_list_num *new);
-void		ft_lstadd_front_num(t_list_num **lst, t_list_num *new);
-void		ft_lstclear_num(t_list_num **lst);
-void		ft_lstdelone_num(t_list_num *lst);
+t_list_n	*ft_lstlast_n(t_list_n *lst);
+t_list_n	*ft_lstnew_n(int content);
+int			ft_lstsize_n(t_list_n *lst);
+void		ft_lstadd_back_n(t_list_n **lst, t_list_n *new);
+void		ft_lstadd_front_n(t_list_n **lst, t_list_n *new);
+void		ft_lstclear_n(t_list_n **lst);
+void		ft_lstdelone_n(t_list_n *lst);
 
 char		*get_next_line(int fd);
 char		*cut_act(char *actual);

@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_num.c                                  :+:      :+:    :+:   */
+/*   ft_lstnew_n.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 04:00:55 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/20 01:07:38 by wportilh         ###   ########.fr       */
+/*   Created: 2022/04/18 00:23:19 by wportilh          #+#    #+#             */
+/*   Updated: 2022/08/23 00:50:50 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-void	ft_lstclear_num(t_list_num **lst)
+t_list_n	*ft_lstnew_n(int content)
 {
-	t_list_num	*temp;
+	t_list_n	*n;
 
-	temp = *lst;
-	if (temp == NULL)
-		return ;
-	while (*lst)
-	{
-		*lst = (*lst)->next;
-		free(temp);
-		temp = *lst;
-	}
-	*lst = NULL;
+	n = malloc(sizeof(t_list));
+	if (n == NULL)
+		return (NULL);
+	(*n).content = content;
+	n->next = NULL;
+	return (n);
 }
