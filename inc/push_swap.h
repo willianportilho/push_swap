@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:11:52 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/23 21:15:28 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/24 23:43:51 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	push(char *op, t_data *data);
 void	reverse_rotate(char *op, t_data *data);
 void	rotate(char *op, t_data *data);
 void	swap(char *op, t_data *data);
+void	ps_sort(t_data *data);
 void	ps_init(int ac, char *av[], t_data *data);
 void	ps_error(void);
 void	ps_save_op(char *op, t_data *data);

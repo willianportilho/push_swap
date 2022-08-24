@@ -6,26 +6,11 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 00:10:24 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/17 01:45:24 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/24 21:14:28 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
-
-static long	convert_atol(char *str)
-{
-	int		i;
-	long	result;
-
-	i = 0;
-	result = 0;
-	while ((str[i] != '\0') && ((str[i] >= 48) && (str[i] <= 57)))
-	{
-		result = (result * 10) + (str[i] - 48);
-		i++;
-	}
-	return (result);
-}
 
 long	ft_atol(const char *nptr)
 {
@@ -37,19 +22,21 @@ long	ft_atol(const char *nptr)
 	i = 0;
 	while ((nptr[i] == ' ') || (nptr[i] == '\t') || (nptr[i] == '\n')
 		|| (nptr[i] == '\r') || (nptr[i] == '\v') || (nptr[i] == '\f'))
-	{
 		i++;
-	}
 	if ((nptr[i] == '-') || (nptr[i] == '+'))
 	{
 		if (nptr[i] == '-')
-		{
 			signal = -1;
-		}
 		i++;
 	}
 	nptr = nptr + i;
-	result = convert_atol((char *)nptr);
+	i = 0;
+	result = 0;
+	while ((nptr[i] != '\0') && ((nptr[i] >= 48) && (nptr[i] <= 57)))
+	{
+		result = (result * 10) + (nptr[i] - 48);
+		i++;
+	}
 	result = result * signal;
 	return (result);
 }

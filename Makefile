@@ -6,15 +6,16 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 21:44:36 by wportilh          #+#    #+#              #
-#    Updated: 2022/08/23 21:30:45 by wportilh         ###   ########.fr        #
+#    Updated: 2022/08/24 23:41:33 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SOURCES =		                 \
-				push_swap.c       \
-				ps_init.c          \
-				ps_utils.c          \
-				ps_operations.c      \
+				ps_init.c         \
+				ps_operations.c    \
+				ps_sort.c           \
+				ps_utils.c           \
+				push_swap.c
 
 NAME =			push_swap
 
