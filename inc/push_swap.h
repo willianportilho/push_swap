@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:11:52 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/26 02:41:05 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/26 02:56:08 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_data
 	int			i;
 	int			i2;
 	int			size;
+	int			times;
 	char		*str;
 }				t_data;
 
