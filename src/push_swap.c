@@ -6,57 +6,74 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:51:17 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/26 02:46:32 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/31 00:59:51 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	print_test(t_data *data, int check)
+void	print_a(t_ps *ps)
 {
-	if (data->a)
+	if (ps->a)
 	{
-		data->aux = data->a;
-		while (data->aux->next)
+		ps->aux = ps->a;
+		while (ps->aux->next)
 		{
-			ft_printf("a: %d\n", data->aux->content);
-			data->aux = data->aux->next;
+			ft_printf("a: %d\n", ps->aux->content);
+			ps->aux = ps->aux->next;
 		}
-		ft_printf("a: %d\n\n", data->aux->content);
+		ft_printf("a: %d\n\n", ps->aux->content);
 	}
-	if (data->b)
+}
+
+void	print_b(t_ps *ps)
+{
+	if (ps->b)
 	{
-		data->aux = data->b;
-		while (data->aux->next)
+		ps->aux = ps->b;
+		while (ps->aux->next)
 		{
-			ft_printf("b: %d\n", data->aux->content);
-			data->aux = data->aux->next;
+			ft_printf("b: %d\n", ps->aux->content);
+			ps->aux = ps->aux->next;
 		}
-		ft_printf("b: %d\n\n", data->aux->content);
+		ft_printf("b: %d\n\n", ps->aux->content);
 	}
-	if (check == 1)
+}
+
+void	print_all(t_ps *ps)
+{
+	if (ps->all_op)
 	{
-		if (data->all_op)
+		ps->aux_op = ps->all_op;
+		while (ps->aux_op->next)
 		{
-		data->aux_op = data->all_op;
-		while (data->aux_op->next)
+			ft_printf("%s\n", ps->aux_op->content);
+			ps->aux_op = ps->aux_op->next;
+		}
+		if (ps->aux_op->content)
+			ft_printf("%s\n", ps->aux_op->content);
+	}
+}
+
+void	print_block(t_ps *ps)
+{
+	if (ps->saved_blk)
+	{
+		ps->aux = ps->saved_blk;
+		while (ps->aux->next)
 		{
-			ft_printf("%s\n", data->aux_op->content);
-			data->aux_op = data->aux_op->next;
+			ft_printf("block: %d\n", ps->aux->content);
+			ps->aux = ps->aux->next;
 		}
-		if (data->aux_op->content)
-			ft_printf("%s\n", data->aux_op->content);
-		}
+		ft_printf("block: %d\n", ps->aux->content);
 	}
 }
 
 int	main(int argc, char *argv[])
 {
-	t_data		data;
+	t_ps		ps;
 
-	ps_init(argc, argv, &data);
-	//print_test(&data, 1);
-	ps_sort(&data);
-	//print_test(&data, 1);
-	clear(&data);
+	ps_init(argc, argv, &ps);
+	ps_sort(&ps);
+	clear(&ps);
 }

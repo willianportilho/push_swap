@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 20:58:58 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/23 00:53:30 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/30 21:13:18 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct s_list_n
 	struct s_list_n	*next;
 }					t_list_n;
 
+t_list_n	*ft_lstcpy_n(t_list_n *lst);
 t_list_n	*ft_lstlast_n(t_list_n *lst);
 t_list_n	*ft_lstnew_n(int content);
 int			ft_lstsize_n(t_list_n *lst);

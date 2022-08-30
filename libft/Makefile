@@ -6,7 +6,7 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 21:44:36 by wportilh          #+#    #+#              #
-#    Updated: 2022/08/22 22:34:45 by wportilh         ###   ########.fr        #
+#    Updated: 2022/08/30 21:05:59 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,8 @@ SRC	=                       \
 	ft_lstlast_n.c          \
 	ft_lstadd_back_n.c        \
 	ft_lstdelone_n.c            \
-	ft_lstclear_n.c
+	ft_lstclear_n.c           \
+	ft_lstcpy_n.c
 
 OBJ			= ${SRC:.c=.o}
 

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:11:52 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/26 02:56:08 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/31 00:47:05 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,40 @@
 
 # include "./libft.h"
 
-typedef struct s_data
+typedef struct s_ps
 {
 	t_list_n	*a;
 	t_list_n	*b;
+	t_list_n	*temp;
 	t_list_n	*aux;
 	t_list_n	*aux2;
+	t_list_n	*saved_blk;
 	t_list		*all_op;
 	t_list		*aux_op;
 	int			i;
 	int			i2;
-	int			size;
-	int			times;
-	char		*str;
-}				t_data;
+	int			half;
+	int			higher_n;
+	int			middle_n;
+}				t_ps;
 
-void	clear(t_data *data);
-void	print_test(t_data *data, int check); //Apagar depois;
-int		ps_check_sorting(t_data *data);
-void	double_operation(char *op, t_data *data);
-void	push(char *op, t_data *data);
-void	reverse_rotate(char *op, t_data *data);
-void	rotate(char *op, t_data *data);
-void	swap(char *op, t_data *data);
-void	ps_sort(t_data *data);
-void	ps_init(int ac, char *av[], t_data *data);
+void	print_a(t_ps *ps); //Apagar depois;
+void	print_b(t_ps *ps); //Apagar depois;
+void	print_all(t_ps *ps); //Apagar depois;
+void	print_block(t_ps *ps); //Apagar depois;
+
+void	clear(t_ps *ps);
+int		ps_check_sorting(t_ps *ps);
+void	double_operation(char *op, t_ps *ps);
+void	push(char *op, t_ps *ps);
+void	reverse_rotate(char *op, t_ps *ps);
+void	rotate(char *op, t_ps *ps);
+void	swap(char *op, t_ps *ps);
+void	middle_point(t_ps *ps);
+void	ps_sort(t_ps *ps);
+void	ps_init(int ac, char *av[], t_ps *ps);
 void	ps_error(void);
-void	ps_save_op(char *op, t_data *data);
+void	save_block(t_ps *ps);
+void	ps_save_op(char *op, t_ps *ps);
 
 #endif

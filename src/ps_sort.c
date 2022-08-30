@@ -6,53 +6,40 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 23:39:08 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/26 03:03:54 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/31 00:59:20 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	amount(int position, int n, t_data *data)
+void	middle_point(t_ps *ps)
 {
-	data->times = 0;
-	data->aux = data->a;
-	while (data->aux)
+	ps->temp = ft_lstcpy_n(ps->a);
+	while (ps->half > 0)
 	{
-		data->str = ft_itoa(data->aux->content);
-		if ((data->str[ft_strlen(data->str) - position] - 48) == n)
-			data->times++;
-		data->aux = data->aux->next;
+		ps->aux = ps->temp;
+		ps->higher_n = ps->temp->content;
+		ps->middle_n = ps->temp->content;
+		while (ps->aux)
+		{
+			if (ps->higher_n < ps->aux->content)
+				ps->higher_n = ps->aux->content;
+			if (ps->middle_n > ps->aux->content)
+				ps->middle_n = ps->aux->content;
+			ps->aux = ps->aux->next;
+		}
+		ps->aux = ps->temp;
+		while (ps->aux->content != ps->middle_n)
+			ps->aux = ps->aux->next;
+		ps->aux->content = ps->higher_n;
+		ps->half--;
 	}
 }
 
-void	ps_sort(t_data *data)
+void	ps_sort(t_ps *ps)
 {
-	int	n;
-
-	n = 0;
-	while (n <= 9)
-	{
-		amount(1, n, data);
-		data->size = ft_lstsize_n(data->a);
-		data->aux = data->a;
-		while ((data->size > 0) && (data->times > 0))
-		{
-			data->str = ft_itoa(data->aux->content);
-			if ((data->str[ft_strlen(data->str) - 1] - 48) == n)
-			{
-				data->size--;
-				data->times--;
-				push("pb", data);
-			}
-			else
-			{
-				rotate("ra", data);
-				data->size--;
-			}
-			free(data->str);
-			data->aux = data->a;
-		}
-		n++;
-	}
-	print_test(data, 1);
+	ps->half = ft_lstsize_n(ps->a) / 2;
+	save_block(ps);
+	ps->half++;
+	middle_point(ps);
 }

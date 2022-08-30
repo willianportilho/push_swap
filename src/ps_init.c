@@ -6,31 +6,31 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 01:56:45 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/26 02:43:23 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/31 00:23:37 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void	stack(char *av[], t_data *data)
+static void	stack(char *av[], t_ps *ps)
 {
 	int		i;
 
 	i = 1;
-	data->a = ft_lstnew_n(ft_atoi(av[i++]));
+	ps->a = ft_lstnew_n(ft_atoi(av[i++]));
 	if (av[i])
 	{
-		data->aux = ft_lstnew_n(ft_atoi(av[i++]));
-		data->a->next = data->aux;
+		ps->aux = ft_lstnew_n(ft_atoi(av[i++]));
+		ps->a->next = ps->aux;
 		while (av[i])
 		{
-			data->aux->next = ft_lstnew_n(ft_atoi(av[i++]));
-			data->aux = data->aux->next;
+			ps->aux->next = ft_lstnew_n(ft_atoi(av[i++]));
+			ps->aux = ps->aux->next;
 		}
-		data->aux = NULL;
+		ps->aux = NULL;
 	}
-	data->b = NULL;
-	data->aux2 = NULL;
+	ps->b = NULL;
+	ps->aux2 = NULL;
 }
 
 static void	check_dup(int n, char *av[])
@@ -78,15 +78,17 @@ static void	check_args(int ac, char *av[])
 	}
 }
 
-void	ps_init(int ac, char *av[], t_data *data)
+void	ps_init(int ac, char *av[], t_ps *ps)
 {
 	check_args(ac, av);
-	stack(av, data);
-	data->all_op = NULL;
-	data->aux_op = NULL;
-	if (!ps_check_sorting(data))
+	stack(av, ps);
+	ps->all_op = NULL;
+	ps->aux_op = NULL;
+	ps->temp = NULL;
+	ps->saved_blk = NULL;
+	if (!ps_check_sorting(ps))
 	{
-		clear(data);
+		clear(ps);
 		exit(EXIT_SUCCESS);
 	}
 }
