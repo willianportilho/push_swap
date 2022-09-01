@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 20:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/31 00:42:59 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/08/31 03:21:10 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ void	clear(t_ps *ps)
 		ft_lstclear_n(&ps->b);
 	if (ps->saved_blk)
 		ft_lstclear_n(&ps->saved_blk);
-	if (ps->temp)
-		ft_lstclear_n(&ps->temp);
 	if (ps->all_op)
 		ft_lstclear_alt(&ps->all_op);
 }
