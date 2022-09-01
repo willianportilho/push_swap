@@ -6,11 +6,63 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 23:39:08 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/31 03:21:18 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/01 21:27:02 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+void	ra_or_rra(t_ps *ps)
+{
+	int	size;
+	int	half_stack;
+
+	ps->aux = ps->a;
+	size = 0;
+	half_stack = ft_lstsize_n(ps->a) / 2;
+	while (ps->aux->content >= ps->middle_n)
+	{
+		ps->aux = ps->aux->next;
+		size++;
+	}
+	if (size > half_stack)
+	{
+		while (ps->a->content >= ps->middle_n)
+			reverse_rotate("rra", ps);
+	}
+	else
+	{
+		while (ps->a->content >= ps->middle_n)
+			rotate("ra", ps);
+	}
+}
+
+void	send_to_b(t_ps *ps)
+{
+	int	times;
+
+	times = ft_lstsize_n(ps->a) / 2;
+	while (times > 0)
+	{
+		if (ps->a->content >= ps->middle_n)
+		{
+			ps->aux = ft_lstlast_n(ps->a);
+			if (ps->aux->content < ps->middle_n)
+			{
+				reverse_rotate("rra", ps);
+				push("pb", ps);
+				times--;
+			}
+			else
+				ra_or_rra(ps);
+		}
+		if (ps->a->content < ps->middle_n)
+		{
+			push("pb", ps);
+			times--;
+		}
+	}
+}
 
 void	middle_point(t_ps *ps)
 {
@@ -36,36 +88,6 @@ void	middle_point(t_ps *ps)
 	}
 	if (ps->temp)
 		ft_lstclear_n(&ps->temp);
-}
-
-void	send_to_b(t_ps *ps)
-{
-	int	times;
-
-	times = ft_lstsize_n(ps->a) / 2;
-	while (times > 0)
-	{
-		if (ps->a->content >= ps->middle_n)
-		{
-			ps->aux = ft_lstlast_n(ps->a);
-			if (ps->aux->content < ps->middle_n)
-			{
-				reverse_rotate("rra", ps);
-				push("pb", ps);
-				times--;
-			}
-			else
-			{
-				while (ps->a->content >= ps->middle_n)
-					rotate("ra", ps);
-			}
-		}
-		if (ps->a->content < ps->middle_n)
-		{
-			push("pb", ps);
-			times--;
-		}
-	}
 }
 
 void	ps_sort(t_ps *ps)

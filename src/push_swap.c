@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:51:17 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/31 01:37:39 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/01 21:23:08 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,13 @@ void	print_block(t_ps *ps)
 int	main(int argc, char *argv[])
 {
 	t_ps		ps;
-	//int			n;
+	int			n;
 
 	ps_init(argc, argv, &ps);
 	ps_sort(&ps);
-	//n = ft_lstsize(ps.all_op);
+	n = ft_lstsize(ps.all_op);
 	print_a(&ps);
 	print_b(&ps);
-	//print_block(&ps);
-	//ft_printf("nº de operações: %d\n", n);
+	ft_printf("nº de operações: %d\n", n);
 	clear(&ps);
 }

@@ -6,7 +6,7 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 21:44:36 by wportilh          #+#    #+#              #
-#    Updated: 2022/08/31 03:31:49 by wportilh         ###   ########.fr        #
+#    Updated: 2022/09/01 21:19:58 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,7 @@ run:			${NAME}
 
 run2:			${NAME}
 				clear
-				${VAL} ./${NAME} 0 5 15 13 100 155
+				${VAL} ./${NAME} 0 5 15 100 13 12 11 10 155
 
 rungdb:			${NAME}
 				clear
