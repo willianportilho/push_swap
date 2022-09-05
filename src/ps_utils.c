@@ -6,15 +6,36 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 20:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/05 05:01:06 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 18:09:22 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ps_print(char *op)
+void	ps_print_operations(t_ps *ps)
 {
-	ft_printf("%s\n", op);
+	if (ps->all_op)
+	{
+		ps->aux_op = ps->all_op;
+		while (ps->aux_op->next)
+		{
+			ft_printf("%s\n", ps->aux_op->content);
+			ps->aux_op = ps->aux_op->next;
+		}
+		if (ps->aux_op->content)
+			ft_printf("%s\n", ps->aux_op->content);
+	}
+}
+
+void	ps_save_op(char *op, t_ps *ps)
+{
+	if (ps->all_op == NULL)
+		ps->all_op = ft_lstnew(op);
+	else
+	{
+		ps->aux_op = ft_lstlast(ps->all_op);
+		ps->aux_op->next = ft_lstnew(op);
+	}
 }
 
 int	ps_check_sorting(t_ps *ps)

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:11:52 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/05 05:01:15 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 18:15:54 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct s_ps
 	int			size_a;
 	int			higher_n;
 	int			middle_n;
+	int			half_stack;
+	int			higher_distance;
 }				t_ps;
 
 int		ps_check_sorting(t_ps *ps);
@@ -39,12 +41,14 @@ void	ps_clear(t_ps *ps);
 void	ps_double_operation(char *op, t_ps *ps);
 void	ps_error(void);
 void	ps_init(int ac, char *av[], t_ps *ps);
-void	ps_sort(t_ps *ps);
 void	ps_print(char *op);
+void	ps_print_operations(t_ps *ps);
 void	ps_push(char *op, t_ps *ps);
 void	ps_reverse_rotate(char *op, t_ps *ps);
 void	ps_rotate(char *op, t_ps *ps);
+void	ps_save_op(char *op, t_ps *ps);
 void	ps_send_to_a(t_ps *ps);
+void	ps_sort(t_ps *ps);
 void	ps_swap(char *op, t_ps *ps);
 
 #endif

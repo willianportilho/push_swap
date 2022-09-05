@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 00:47:19 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/05 05:01:52 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 18:16:58 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,18 @@ static void	higher_number(t_ps *ps)
 
 void	ps_send_to_a(t_ps *ps)
 {
-	int	size;
-	int	half_stack;
-
 	while (ps->b)
 	{
 		higher_number(ps);
 		ps->aux = ps->b;
-		size = 0;
-		half_stack = ft_lstsize_n(ps->b) / 2;
+		ps->higher_distance = 0;
+		ps->half_stack = ft_lstsize_n(ps->b) / 2;
 		while (ps->aux->content != ps->higher_n)
 		{
 			ps->aux = ps->aux->next;
-			size++;
+			ps->higher_distance++;
 		}
-		if (size > half_stack)
+		if (ps->higher_distance > ps->half_stack)
 		{
 			while (ps->b->content != ps->higher_n)
 				ps_reverse_rotate("rrb", ps);

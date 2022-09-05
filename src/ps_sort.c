@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 23:39:08 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/05 05:06:39 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 18:20:12 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 static void	ra_or_rra(t_ps *ps)
 {
-	int	size;
-	int	half_stack;
-
 	ps->aux = ps->a;
-	size = 0;
-	half_stack = ft_lstsize_n(ps->a) / 2;
+	ps->higher_distance = 0;
+	ps->half_stack = ft_lstsize_n(ps->a) / 2;
 	while (ps->aux->content >= ps->middle_n)
 	{
 		ps->aux = ps->aux->next;
-		size++;
+		ps->higher_distance++;
 	}
-	if (size > half_stack)
+	if (ps->higher_distance > ps->half_stack)
 	{
 		while (ps->a->content >= ps->middle_n)
 			ps_reverse_rotate("rra", ps);
@@ -39,10 +36,8 @@ static void	ra_or_rra(t_ps *ps)
 
 static void	send_to_b(t_ps *ps)
 {
-	int	times;
-
-	times = ps->blk - 1;
-	while (times > 0)
+	ps->times = ps->blk - 1;
+	while (ps->times > 0)
 	{
 		if (ps->a->content >= ps->middle_n)
 		{
@@ -51,7 +46,7 @@ static void	send_to_b(t_ps *ps)
 			{
 				ps_reverse_rotate("rra", ps);
 				ps_push("pb", ps);
-				times--;
+				ps->times--;
 			}
 			else
 				ra_or_rra(ps);
@@ -59,7 +54,7 @@ static void	send_to_b(t_ps *ps)
 		if (ps->a->content < ps->middle_n)
 		{
 			ps_push("pb", ps);
-			times--;
+			ps->times--;
 		}
 	}
 }

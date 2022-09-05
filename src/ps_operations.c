@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 02:24:11 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/05 05:05:20 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 18:05:30 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ps_swap(char *op, t_ps *ps)
 		ps->a = ps->aux;
 		ps->aux = NULL;
 		if (ft_strcmp(op, "ss") != 0)
-			ps_print(op);
+			ps_save_op(op, ps);
 	}
 	ps->i2 = ft_lstsize_n(ps->b);
 	if (((!ft_strcmp(op, "sb")) || (!ft_strcmp(op, "ss"))) && (ps->i2 > 1))
@@ -33,7 +33,7 @@ void	ps_swap(char *op, t_ps *ps)
 		ps->aux->next = ps->b;
 		ps->b = ps->aux;
 		ps->aux = NULL;
-		ps_print(op);
+		ps_save_op(op, ps);
 	}
 }
 
@@ -47,7 +47,7 @@ void	ps_push(char *op, t_ps *ps)
 		ps->aux->next = ps->a;
 		ps->a = ps->aux;
 		ps->aux = NULL;
-		ps_print(op);
+		ps_save_op(op, ps);
 	}
 	ps->i = ft_lstsize_n(ps->a);
 	if ((!ft_strcmp(op, "pb")) && (ps->i > 0))
@@ -57,7 +57,7 @@ void	ps_push(char *op, t_ps *ps)
 		ps->aux->next = ps->b;
 		ps->b = ps->aux;
 		ps->aux = NULL;
-		ps_print(op);
+		ps_save_op(op, ps);
 	}
 }
 
@@ -73,7 +73,7 @@ void	ps_rotate(char *op, t_ps *ps)
 		ps->a = ps->aux;
 		ps->aux = NULL;
 		if (ft_strcmp(op, "rr") != 0)
-			ps_print(op);
+			ps_save_op(op, ps);
 	}
 	ps->i2 = ft_lstsize_n(ps->b);
 	if (((!ft_strcmp(op, "rb")) || (!ft_strcmp(op, "rr"))) && (ps->i2 > 1))
@@ -84,7 +84,7 @@ void	ps_rotate(char *op, t_ps *ps)
 		ps->b->next = NULL;
 		ps->b = ps->aux;
 		ps->aux = NULL;
-		ps_print(op);
+		ps_save_op(op, ps);
 	}
 }
 
@@ -101,7 +101,7 @@ void	ps_reverse_rotate(char *op, t_ps *ps)
 		ps->aux->next = NULL;
 		ps->aux = NULL;
 		if (ft_strcmp(op, "rrr") != 0)
-			ps_print(op);
+			ps_save_op(op, ps);
 	}
 	ps->i2 = ft_lstsize_n(ps->b);
 	if (((!ft_strcmp(op, "rrb")) || (!ft_strcmp(op, "rrr"))) && (ps->i2 > 1))
@@ -113,7 +113,7 @@ void	ps_reverse_rotate(char *op, t_ps *ps)
 			ps->aux = ps->aux->next;
 		ps->aux->next = NULL;
 		ps->aux = NULL;
-		ps_print(op);
+		ps_save_op(op, ps);
 	}
 }
 
