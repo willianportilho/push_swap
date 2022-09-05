@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 23:39:08 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/05 18:20:12 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/06 01:35:26 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,8 @@ void	ps_sort(t_ps *ps)
 {
 	if (ft_lstsize_n(ps->a) <= 5)
 	{
-		
+		ps_sort_small_stack(ps);
+		return ;
 	}
 	while (ft_lstsize_n(ps->a) > 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:11:52 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/05 18:15:54 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/06 00:56:40 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PUSH_SWAP_H
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
+# define STACK_A 1
+# define STACK_B 2
 
 # include "./libft.h"
 
@@ -31,6 +33,7 @@ typedef struct s_ps
 	int			times;
 	int			size_a;
 	int			higher_n;
+	int			smaller_n;
 	int			middle_n;
 	int			half_stack;
 	int			higher_distance;
@@ -49,6 +52,7 @@ void	ps_rotate(char *op, t_ps *ps);
 void	ps_save_op(char *op, t_ps *ps);
 void	ps_send_to_a(t_ps *ps);
 void	ps_sort(t_ps *ps);
+void	ps_sort_small_stack(t_ps *ps);
 void	ps_swap(char *op, t_ps *ps);
 
 #endif
