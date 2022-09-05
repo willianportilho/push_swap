@@ -6,21 +6,15 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 20:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/05 02:14:01 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 05:01:06 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ps_save_op(char *op, t_ps *ps)
+void	ps_print(char *op)
 {
-	if (ps->all_op == NULL)
-		ps->all_op = ft_lstnew(op);
-	else
-	{
-		ps->aux_op = ft_lstlast(ps->all_op);
-		ps->aux_op->next = ft_lstnew(op);
-	}
+	ft_printf("%s\n", op);
 }
 
 int	ps_check_sorting(t_ps *ps)
@@ -47,7 +41,7 @@ void	ps_error(void)
 	exit(EXIT_FAILURE);
 }
 
-void	clear(t_ps *ps)
+void	ps_clear(t_ps *ps)
 {
 	if (ps->a)
 		ft_lstclear_n(&ps->a);

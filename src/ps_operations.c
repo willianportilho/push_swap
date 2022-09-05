@@ -6,13 +6,13 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 02:24:11 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/26 21:34:38 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 05:05:20 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	swap(char *op, t_ps *ps)
+void	ps_swap(char *op, t_ps *ps)
 {
 	ps->i = ft_lstsize_n(ps->a);
 	if (((!ft_strcmp(op, "sa")) || (!ft_strcmp(op, "ss"))) && (ps->i > 1))
@@ -23,7 +23,7 @@ void	swap(char *op, t_ps *ps)
 		ps->a = ps->aux;
 		ps->aux = NULL;
 		if (ft_strcmp(op, "ss") != 0)
-			ps_save_op(op, ps);
+			ps_print(op);
 	}
 	ps->i2 = ft_lstsize_n(ps->b);
 	if (((!ft_strcmp(op, "sb")) || (!ft_strcmp(op, "ss"))) && (ps->i2 > 1))
@@ -33,11 +33,11 @@ void	swap(char *op, t_ps *ps)
 		ps->aux->next = ps->b;
 		ps->b = ps->aux;
 		ps->aux = NULL;
-		ps_save_op(op, ps);
+		ps_print(op);
 	}
 }
 
-void	push(char *op, t_ps *ps)
+void	ps_push(char *op, t_ps *ps)
 {
 	ps->i2 = ft_lstsize_n(ps->b);
 	if ((!ft_strcmp(op, "pa")) && (ps->i2 > 0))
@@ -47,7 +47,7 @@ void	push(char *op, t_ps *ps)
 		ps->aux->next = ps->a;
 		ps->a = ps->aux;
 		ps->aux = NULL;
-		ps_save_op(op, ps);
+		ps_print(op);
 	}
 	ps->i = ft_lstsize_n(ps->a);
 	if ((!ft_strcmp(op, "pb")) && (ps->i > 0))
@@ -57,11 +57,11 @@ void	push(char *op, t_ps *ps)
 		ps->aux->next = ps->b;
 		ps->b = ps->aux;
 		ps->aux = NULL;
-		ps_save_op(op, ps);
+		ps_print(op);
 	}
 }
 
-void	rotate(char *op, t_ps *ps)
+void	ps_rotate(char *op, t_ps *ps)
 {
 	ps->i = ft_lstsize_n(ps->a);
 	if (((!ft_strcmp(op, "ra")) || (!ft_strcmp(op, "rr"))) && (ps->i > 1))
@@ -73,7 +73,7 @@ void	rotate(char *op, t_ps *ps)
 		ps->a = ps->aux;
 		ps->aux = NULL;
 		if (ft_strcmp(op, "rr") != 0)
-			ps_save_op(op, ps);
+			ps_print(op);
 	}
 	ps->i2 = ft_lstsize_n(ps->b);
 	if (((!ft_strcmp(op, "rb")) || (!ft_strcmp(op, "rr"))) && (ps->i2 > 1))
@@ -84,11 +84,11 @@ void	rotate(char *op, t_ps *ps)
 		ps->b->next = NULL;
 		ps->b = ps->aux;
 		ps->aux = NULL;
-		ps_save_op(op, ps);
+		ps_print(op);
 	}
 }
 
-void	reverse_rotate(char *op, t_ps *ps)
+void	ps_reverse_rotate(char *op, t_ps *ps)
 {
 	ps->i = ft_lstsize_n(ps->a);
 	if (((!ft_strcmp(op, "rra")) || (!ft_strcmp(op, "rrr"))) && (ps->i > 1))
@@ -101,7 +101,7 @@ void	reverse_rotate(char *op, t_ps *ps)
 		ps->aux->next = NULL;
 		ps->aux = NULL;
 		if (ft_strcmp(op, "rrr") != 0)
-			ps_save_op(op, ps);
+			ps_print(op);
 	}
 	ps->i2 = ft_lstsize_n(ps->b);
 	if (((!ft_strcmp(op, "rrb")) || (!ft_strcmp(op, "rrr"))) && (ps->i2 > 1))
@@ -113,18 +113,18 @@ void	reverse_rotate(char *op, t_ps *ps)
 			ps->aux = ps->aux->next;
 		ps->aux->next = NULL;
 		ps->aux = NULL;
-		ps_save_op(op, ps);
+		ps_print(op);
 	}
 }
 
-void	double_operation(char *op, t_ps *ps)
+void	ps_double_operation(char *op, t_ps *ps)
 {
 	ps->i = ft_lstsize_n(ps->a);
 	ps->i2 = ft_lstsize_n(ps->b);
 	if ((!ft_strcmp(op, "ss")) && (ps->i > 1) && (ps->i2 > 1))
-		swap(op, ps);
+		ps_swap(op, ps);
 	if ((!ft_strcmp(op, "rr")) && (ps->i > 1) && (ps->i2 > 1))
-		rotate(op, ps);
+		ps_rotate(op, ps);
 	if ((!ft_strcmp(op, "rrr")) && (ps->i > 1) && (ps->i2 > 1))
-		reverse_rotate(op, ps);
+		ps_reverse_rotate(op, ps);
 }

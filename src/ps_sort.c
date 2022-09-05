@@ -6,13 +6,13 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 23:39:08 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/05 04:32:27 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 05:06:39 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ra_or_rra(t_ps *ps)
+static void	ra_or_rra(t_ps *ps)
 {
 	int	size;
 	int	half_stack;
@@ -28,16 +28,16 @@ void	ra_or_rra(t_ps *ps)
 	if (size > half_stack)
 	{
 		while (ps->a->content >= ps->middle_n)
-			reverse_rotate("rra", ps);
+			ps_reverse_rotate("rra", ps);
 	}
 	else
 	{
 		while (ps->a->content >= ps->middle_n)
-			rotate("ra", ps);
+			ps_rotate("ra", ps);
 	}
 }
 
-void	send_to_b(t_ps *ps)
+static void	send_to_b(t_ps *ps)
 {
 	int	times;
 
@@ -49,8 +49,8 @@ void	send_to_b(t_ps *ps)
 			ps->aux = ft_lstlast_n(ps->a);
 			if (ps->aux->content < ps->middle_n)
 			{
-				reverse_rotate("rra", ps);
-				push("pb", ps);
+				ps_reverse_rotate("rra", ps);
+				ps_push("pb", ps);
 				times--;
 			}
 			else
@@ -58,13 +58,13 @@ void	send_to_b(t_ps *ps)
 		}
 		if (ps->a->content < ps->middle_n)
 		{
-			push("pb", ps);
+			ps_push("pb", ps);
 			times--;
 		}
 	}
 }
 
-void	middle_point(t_ps *ps)
+static void	middle_point(t_ps *ps)
 {
 	ps->times = ps->blk;
 	ps->aux2 = ft_lstcpy_n(ps->a);
@@ -91,7 +91,7 @@ void	middle_point(t_ps *ps)
 		ft_lstclear_n(&ps->aux2);
 }
 
-void	size_blk(t_ps *ps)
+static void	size_blk(t_ps *ps)
 {
 	ps->size_a = ft_lstsize_n(ps->a);
 	if (ps->size_a < 18)
@@ -122,11 +122,15 @@ void	size_blk(t_ps *ps)
 
 void	ps_sort(t_ps *ps)
 {
+	if (ft_lstsize_n(ps->a) <= 5)
+	{
+		
+	}
 	while (ft_lstsize_n(ps->a) > 1)
 	{
 		size_blk(ps);
 		middle_point(ps);
 		send_to_b(ps);
 	}
-	send_to_a(ps);
+	ps_send_to_a(ps);
 }

@@ -6,13 +6,13 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 00:47:19 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/05 03:49:17 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 05:01:52 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	higher_number(t_ps *ps)
+static void	higher_number(t_ps *ps)
 {
 	ps->aux = ps->b;
 	ps->higher_n = ps->b->content;
@@ -24,7 +24,7 @@ void	higher_number(t_ps *ps)
 	}
 }
 
-void	send_to_a(t_ps *ps)
+void	ps_send_to_a(t_ps *ps)
 {
 	int	size;
 	int	half_stack;
@@ -43,14 +43,14 @@ void	send_to_a(t_ps *ps)
 		if (size > half_stack)
 		{
 			while (ps->b->content != ps->higher_n)
-				reverse_rotate("rrb", ps);
-			push("pa", ps);
+				ps_reverse_rotate("rrb", ps);
+			ps_push("pa", ps);
 		}
 		else
 		{
 			while (ps->b->content != ps->higher_n)
-				rotate("rb", ps);
-			push("pa", ps);
+				ps_rotate("rb", ps);
+			ps_push("pa", ps);
 		}
 	}
 }
