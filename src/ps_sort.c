@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 23:39:08 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/02 02:28:40 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 04:32:27 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	send_to_b(t_ps *ps)
 {
 	int	times;
 
-	times = ft_lstsize_n(ps->a) / 2;
+	times = ps->blk - 1;
 	while (times > 0)
 	{
 		if (ps->a->content >= ps->middle_n)
@@ -66,12 +66,13 @@ void	send_to_b(t_ps *ps)
 
 void	middle_point(t_ps *ps)
 {
-	ps->temp = ft_lstcpy_n(ps->a);
-	while (ps->half > 0)
+	ps->times = ps->blk;
+	ps->aux2 = ft_lstcpy_n(ps->a);
+	while (ps->times > 0)
 	{
-		ps->aux = ps->temp;
-		ps->higher_n = ps->temp->content;
-		ps->middle_n = ps->temp->content;
+		ps->aux = ps->aux2;
+		ps->higher_n = ps->aux2->content;
+		ps->middle_n = ps->aux2->content;
 		while (ps->aux)
 		{
 			if (ps->higher_n < ps->aux->content)
@@ -80,27 +81,52 @@ void	middle_point(t_ps *ps)
 				ps->middle_n = ps->aux->content;
 			ps->aux = ps->aux->next;
 		}
-		ps->aux = ps->temp;
+		ps->aux = ps->aux2;
 		while (ps->aux->content != ps->middle_n)
 			ps->aux = ps->aux->next;
 		ps->aux->content = ps->higher_n;
-		ps->half--;
+		ps->times--;
 	}
-	if (ps->temp)
-		ft_lstclear_n(&ps->temp);
+	if (ps->aux2)
+		ft_lstclear_n(&ps->aux2);
+}
+
+void	size_blk(t_ps *ps)
+{
+	ps->size_a = ft_lstsize_n(ps->a);
+	if (ps->size_a < 18)
+		ps->blk = ps->size_a;
+	else if (ps->size_a <= 100)
+		ps->blk = 18;
+	else if (ps->size_a <= 500)
+		ps->blk = 38;
+	else if (ps->size_a <= 2500)
+		ps->blk = 80;
+	else if (ps->size_a <= 10000)
+		ps->blk = 169;
+	else if (ps->size_a <= 50000)
+		ps->blk = 357;
+	else if (ps->size_a <= 250000)
+		ps->blk = 755;
+	else if (ps->size_a <= 1000000)
+		ps->blk = 1593;
+	else if (ps->size_a <= 5000000)
+		ps->blk = 3363;
+	else if (ps->size_a <= 25000000)
+		ps->blk = 7099;
+	else if (ps->size_a <= 100000000)
+		ps->blk = 14985;
+	else
+		ps->blk = 50000;
 }
 
 void	ps_sort(t_ps *ps)
 {
-	while (ft_lstsize_n(ps->a) > 2)
+	while (ft_lstsize_n(ps->a) > 1)
 	{
-		ps->half = ft_lstsize_n(ps->a) / 2;
-		save_block(ps);
-		ps->half++;
+		size_blk(ps);
 		middle_point(ps);
 		send_to_b(ps);
 	}
-	if (ps->a->content > ps->a->next->content)
-		swap("sa", ps);
 	send_to_a(ps);
 }

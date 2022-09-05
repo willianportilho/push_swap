@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 01:56:45 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/31 00:23:37 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 04:33:27 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ void	ps_init(int ac, char *av[], t_ps *ps)
 	stack(av, ps);
 	ps->all_op = NULL;
 	ps->aux_op = NULL;
-	ps->temp = NULL;
-	ps->saved_blk = NULL;
 	if (!ps_check_sorting(ps))
 	{
 		clear(ps);

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 00:47:19 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/02 02:38:27 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 03:49:17 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 void	higher_number(t_ps *ps)
 {
-	ps->temp = ft_lstcpy_n(ps->b);
-	ps->aux = ps->temp;
-	ps->higher_n = ps->temp->content;
+	ps->aux = ps->b;
+	ps->higher_n = ps->b->content;
 	while (ps->aux)
 	{
 		if (ps->higher_n < ps->aux->content)
 			ps->higher_n = ps->aux->content;
 		ps->aux = ps->aux->next;
 	}
-	if (ps->temp)
-		ft_lstclear_n(&ps->temp);
 }
 
 void	send_to_a(t_ps *ps)
@@ -43,9 +40,7 @@ void	send_to_a(t_ps *ps)
 			ps->aux = ps->aux->next;
 			size++;
 		}
-		if (size == 0)
-			push("pa", ps);
-		else if (size > half_stack)
+		if (size > half_stack)
 		{
 			while (ps->b->content != ps->higher_n)
 				reverse_rotate("rrb", ps);

@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:51:17 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/05 02:01:00 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 03:52:21 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,6 @@ void	print_all(t_ps *ps)
 	}
 }
 
-void	print_block(t_ps *ps)
-{
-	if (ps->saved_blk)
-	{
-		ps->aux = ps->saved_blk;
-		while (ps->aux->next)
-		{
-			ft_printf("block: %d\n", ps->aux->content);
-			ps->aux = ps->aux->next;
-		}
-		ft_printf("block: %d\n", ps->aux->content);
-	}
-}
-
 int	main(int argc, char *argv[])
 {
 	t_ps		ps;
@@ -76,8 +62,6 @@ int	main(int argc, char *argv[])
 
 	ps_init(argc, argv, &ps);
 	ps_sort(&ps);
-	//print_a(&ps);
-	//print_b(&ps);
 	n = ft_lstsize(ps.all_op);
 	print_all(&ps);
 	ft_printf("Total de operações: %d\n", n);
