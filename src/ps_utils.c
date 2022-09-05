@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 20:40:09 by wportilh          #+#    #+#             */
-/*   Updated: 2022/08/31 03:21:10 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/01 22:59:28 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	ps_save_op(char *op, t_ps *ps)
 
 void	save_block(t_ps *ps)
 {
+	if (ps->half == 0)
+		ps->half++;
 	if (ps->saved_blk == NULL)
 		ps->saved_blk = ft_lstnew_n(ps->half);
 	else

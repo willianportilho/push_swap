@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:51:17 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/01 21:23:08 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/05 02:01:00 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,10 @@ int	main(int argc, char *argv[])
 
 	ps_init(argc, argv, &ps);
 	ps_sort(&ps);
+	//print_a(&ps);
+	//print_b(&ps);
 	n = ft_lstsize(ps.all_op);
-	print_a(&ps);
-	print_b(&ps);
-	ft_printf("nº de operações: %d\n", n);
+	print_all(&ps);
+	ft_printf("Total de operações: %d\n", n);
 	clear(&ps);
 }

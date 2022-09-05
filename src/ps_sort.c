@@ -6,7 +6,7 @@
 /*   By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 23:39:08 by wportilh          #+#    #+#             */
-/*   Updated: 2022/09/01 21:27:02 by wportilh         ###   ########.fr       */
+/*   Updated: 2022/09/02 02:28:40 by wportilh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,7 @@ void	ps_sort(t_ps *ps)
 		middle_point(ps);
 		send_to_b(ps);
 	}
-	print_all(ps);
+	if (ps->a->content > ps->a->next->content)
+		swap("sa", ps);
+	send_to_a(ps);
 }
