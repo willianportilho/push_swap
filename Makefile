@@ -6,7 +6,7 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 21:44:36 by wportilh          #+#    #+#              #
-#    Updated: 2022/09/06 00:12:35 by wportilh         ###   ########.fr        #
+#    Updated: 2022/09/06 01:46:09 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ SOURCES =		                 \
 				ps_init.c         \
 				ps_operations.c    \
 				ps_sort.c           \
-				ps_utils.c           \
-				ps_sort_2.c           \
+				ps_sort_2.c          \
+				ps_utils.c            \
 				push_swap.c
 
 NAME =			push_swap
@@ -81,10 +81,6 @@ run:			${NAME}
 run2:			${NAME}
 				clear
 				${VAL} ./${NAME} 5 4 3 2 1
-
-rungdb:			${NAME}
-				clear
-				gdb -q ./${NAME} -tui enable 0 1 2 3 4 5 6 7 9 8 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 353 36 37 38 39 300 400 40 414 42 43 44 45 46 49 47 48 50 51 52 53 57 54 55 56 58 859 60 61 62 63 64 656 65 66 67 688 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 989 99 100
 
 clean:		
 				@${RM_ALL} ${OBJ_PATH}
