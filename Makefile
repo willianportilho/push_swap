@@ -6,7 +6,7 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 21:44:36 by wportilh          #+#    #+#              #
-#    Updated: 2022/09/06 01:46:09 by wportilh         ###   ########.fr        #
+#    Updated: 2022/09/07 23:42:30 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,11 +76,18 @@ ac:				${NAME}
 
 run:			${NAME}
 				clear
-				${VAL} ./${NAME} 1 10 100 2 20 3 30 4 40 5 50 6 60 7 70 9 90 8 80 11 21 12 22 13 23 14 24 15 25 16 26 17 27 18 28 19 29 69
-
-run2:			${NAME}
-				clear
-				${VAL} ./${NAME} 5 4 3 2 1
+				@echo "003 numbers"
+				@echo -n "${GREEN}Checker result : "; ARG=$$(seq -1 1 | shuf); ./push_swap $$ARG | ./checker_linux $$ARG
+				@echo -n "Operations     : "; ARG=$$(seq -1 1 | shuf); ./push_swap $$ARG | wc -w; echo "${RESET}"
+				@echo "005 numbers"
+				@echo -n "${YELLOW}Checker result : "; ARG=$$(seq -2 2 | shuf); ./push_swap $$ARG | ./checker_linux $$ARG
+				@echo -n "Operations     : "; ARG=$$(seq -2 2 | shuf); ./push_swap $$ARG | wc -w; echo "${RESET}"
+				@echo "100 numbers: "
+				@echo -n "${GREEN}Checker result : "; ARG=$$(seq -50 49 | shuf); ./push_swap $$ARG | ./checker_linux $$ARG
+				@echo -n "Operations     : "; ARG=$$(seq -50 49 | shuf); ./push_swap $$ARG | wc -w; echo "${RESET}"
+				@echo "500 numbers: "
+				@echo -n "${YELLOW}Checker result : "; ARG=$$(seq -250 249 | shuf); ./push_swap $$ARG | ./checker_linux $$ARG
+				@echo -n "Operations     : "; ARG=$$(seq -250 249 | shuf); ./push_swap $$ARG | wc -w; echo "${RESET}"
 
 clean:		
 				@${RM_ALL} ${OBJ_PATH}
