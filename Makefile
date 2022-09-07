@@ -6,7 +6,7 @@
 #    By: wportilh <wportilh@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 21:44:36 by wportilh          #+#    #+#              #
-#    Updated: 2022/09/07 23:42:30 by wportilh         ###   ########.fr        #
+#    Updated: 2022/09/07 23:53:02 by wportilh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,12 +56,11 @@ all:			${NAME}
 ${NAME}:		${LIBFT} ${OBJS}
 				@echo "${CYAN}=========="
 				@echo "OBJS OK!!!"
-				@echo "==========${RESET}"
 				@sleep 1
 				@${CC} ${OBJS} ${LIBFT} -o ${NAME}
-				@echo "${CYAN}========================"
-				@echo "PIPEX PROGRAM CREATED!!!"
-				@echo "========================${RESET}"
+				@echo "============================"
+				@echo "PUSH_SWAP PROGRAM CREATED!!!"
+				@echo "============================${RESET}"
 
 ${OBJ_PATH}%.o:	${SRC_PATH}%.c
 				@mkdir -p obj
